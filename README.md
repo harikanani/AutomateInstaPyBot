@@ -24,6 +24,6 @@ Thanks For Using This Tool. Hope You Enjoy This Tool. New Update With Some New F
 Harikrushn Kanani
 
 # Social Media Connect
-Instagram : https://instagram.com/kanani_025
-Twitter   : https://twitter.com/Harikrushn9
-FaceBook  : https://facebook.com/harikrishan.kanani/
+# Instagram : https://instagram.com/kanani_025.
+# Twitter   : https://twitter.com/Harikrushn9.
+# FaceBook  : https://facebook.com/harikrishan.kanani/.
