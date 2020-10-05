@@ -6,9 +6,9 @@ import  random
 
 class InstagramBot() :
     def __init__(self,username,password):
-        self.username = 'username'
-        self.password = 'password'
-        self.driver = webdriver.Chrome("C:\\webdriver\\chromedriver.exe")
+        self.username = username
+        self.password = password
+        self.driver = webdriver.Chrome("D:\chromedriver\chromedriver.exe")
 
     def closeBrowser(self):
         self.driver.close()
@@ -18,7 +18,7 @@ class InstagramBot() :
         driver.get("https://instagram.com")
         time.sleep(2)
 
-        login_button = driver.find_element_by_xpath('//*[@id="react-root"]/section/main/article/div[2]/div[1]/div/form/div[4]')
+        login_button = driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]/button')
 
         user_name_elem = driver.find_element_by_xpath("//input[@name='username']")
         user_name_elem.send_keys(self.username)
@@ -27,15 +27,18 @@ class InstagramBot() :
 
         password_elem = driver.find_element_by_xpath("//input[@name='password']")
         password_elem.send_keys(self.password)
-        password_elem.send_keys(Keys.ENTER)
+        # password_elem.send_keys(Keys.ENTER)
         time.sleep(3)
 
-        # login_button.click()
+        login_button.click()
 
         time.sleep(5)
 
-        not_now = driver.find_element_by_xpath('/html/body/div[4]/div/div/div[3]/button[2]')
+        not_now = driver.find_element_by_xpath('/html/body/div[1]/section/main/div/div/div/div/button')
         not_now.click()
+        
+        notification_not_now=driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[2]")
+        notification_not_now.click()
 
     def FollowWithUsername(self,username):
         self.driver.get('https://www.instagram.com/' + username + '/')
@@ -43,11 +46,9 @@ class InstagramBot() :
         time.sleep(3)
 
         follow_button = self.driver.find_element_by_css_selector('button')
-        if(follow_button.text != 'Following') :
-            follow_button.click()
-            time.sleep(2)
-        else :
-            print('Already Following' + username)
+        follow_button.click()
+        time.sleep(2)
+    
         self.driver.back()
         time.sleep(2)
 
@@ -56,15 +57,14 @@ class InstagramBot() :
     def UnFollowWithUsername(self,username):
         self.driver.get('https://www.instagram.com/' + username + '/')
 
-        time.sleep(3)
+        time.sleep(2)
 
-        follow_button = self.driver.find_element_by_css_selector('button')
-        if(follow_button.text == 'Following') :
-            follow_button.click()
-            time.sleep(2)
-        else :
-            print('You are Not Following' + username)
-        self.driver.back()
+        follow_button = self.driver.find_element_by_class_name("_5f5mN")
+        follow_button.click()
+
+        time.sleep(2)
+        unfollow = self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[1]")
+        unfollow.click()
         time.sleep(2)
 
 
@@ -157,10 +157,10 @@ myMessage = 'Hii, There! this is AutomatedBot Message.'
 ig = InstagramBot(username, password)
 ig.Login()
 time.sleep(2)
-ig.UnFollowWithUsername('username')
+ig.FollowWithUsername('abcnews')
 time.sleep(2)
-ig.FollowWithUsername('username')
+ig.UnFollowWithUsername('abcnews')
 time.sleep(2)
-ig.send_message(myUsernames, myMessage)
+# ig.send_message(myUsernames, myMessage)
 time.sleep(2)
 ig.closeBrowser()
