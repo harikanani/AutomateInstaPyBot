@@ -2,7 +2,7 @@
 This is Instagram Bot.
 
 # Version of Software
-Version : V 1.0
+Version : V 1.0.0
 
 # Requirements To use this Tool
 First You must have Chrome WebDriver for use this Tool.
@@ -24,6 +24,6 @@ Thanks For Using This Tool. Hope You Enjoy This Tool. New Update With Some New F
 Harikrushn Kanani
 
 # Social Media Connect
-# Instagram : https://instagram.com/kanani_025.
-# Twitter   : https://twitter.com/Harikrushn9.
-# FaceBook  : https://facebook.com/harikrishan.kanani/.
+# [@kanani_025](https://instagram.com/kanani_025)
+# [@Harikrushn9](https://twitter.com/Harikrushn9)
+# [@Harikrushn Kanani](https://facebook.com/harikrishan.kanani/)
