@@ -1,166 +1,65 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-import  time
-import sys
-import  random
+from time import sleep
+class InstaBot:
+    def __init__(self,username,pwd):
+        # CHANGE THE LOCATION OF CHROMEDRIVER BELOW #
+        self.driver=webdriver.Chrome("D:\chromedriver\chromedriver.exe")
+        self.username=username
 
-class InstagramBot() :
-    def __init__(self,username,password):
-        self.username = username
-        self.password = password
-        self.driver = webdriver.Chrome("D:\chromedriver\chromedriver.exe")
+        self.driver.get("https://instagram.com")
+        self.driver.maximize_window()
+        sleep(2)
+        self.driver.find_element_by_xpath("//input[@name=\"username\"]")\
+            .send_keys(username)
+        self.driver.find_element_by_xpath("//input[@name=\"password\"]")\
+            .send_keys(pwd)
+        self.driver.find_element_by_xpath('//button[@type="submit"]')\
+            .click()
+        sleep(4)
+        self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")\
+            .click()
+        sleep(1)
+        self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")\
+            .click()
+        sleep(2)
 
-    def closeBrowser(self):
-        self.driver.close()
-
-    def Login(self):
-        driver = self.driver
-        driver.get("https://instagram.com")
-        time.sleep(2)
-
-        login_button = driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]/button')
-
-        user_name_elem = driver.find_element_by_xpath("//input[@name='username']")
-        user_name_elem.send_keys(self.username)
-
-        time.sleep(2)
-
-        password_elem = driver.find_element_by_xpath("//input[@name='password']")
-        password_elem.send_keys(self.password)
-        # password_elem.send_keys(Keys.ENTER)
-        time.sleep(3)
-
-        login_button.click()
-
-        time.sleep(5)
-
-        not_now = driver.find_element_by_xpath('/html/body/div[1]/section/main/div/div/div/div/button')
-        not_now.click()
+    def go_home(self):
+        self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[3]/div/div[1]/div/a")\
+        .click()
+        sleep(3)
+        self.search = self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[2]/input")
+        self.search.send_keys("###PROFILE TO LIKE POSTS####")
+        self.driver.implicitly_wait(3)
+        name=self.driver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/div[3]/div[2]/div/a')
+        name.click()
+        self.driver.implicitly_wait(18)
+        self.like()
+    def like(self):
+        self.driver.implicitly_wait(4)
+        sleep(2)
+        start = self.driver.find_element_by_xpath("//*[@id='react-root']/section/main/div/div[3]")
         
-        notification_not_now=driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[2]")
-        notification_not_now.click()
+        a=0
+        self.driver.execute_script('arguments['+str(a)+'].scrollIntoView()',start)
+        
+        for i in range(10):
+            self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+            sleep(3)
+            pics=self.driver.find_elements_by_class_name("v1Nh3")
+            sleep(1)
+            for p in pics:
+                if(a==0):
+                    p.click()
+                    self.driver.implicitly_wait(4)
+                like=self.driver.find_element_by_xpath("/html/body/div[4]/div[2]/div/article/div[3]/section[1]/span[1]/button")
+                like.click()
+                sleep(2)
+                if(a==0):
+                    self.driver.find_element_by_xpath("/html/body/div[4]/div[1]/div/div/a").click()
+                else:
+                    self.driver.find_element_by_xpath("/html/body/div[4]/div[1]/div/div/a[2]").click()
+                a+=1
+                print(a)
 
-    def FollowWithUsername(self,username):
-        self.driver.get('https://www.instagram.com/' + username + '/')
-
-        time.sleep(3)
-
-        follow_button = self.driver.find_element_by_css_selector('button')
-        follow_button.click()
-        time.sleep(2)
-    
-        self.driver.back()
-        time.sleep(2)
-
-
-
-    def UnFollowWithUsername(self,username):
-        self.driver.get('https://www.instagram.com/' + username + '/')
-
-        time.sleep(2)
-
-        follow_button = self.driver.find_element_by_class_name("_5f5mN")
-        follow_button.click()
-
-        time.sleep(2)
-        unfollow = self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[1]")
-        unfollow.click()
-        time.sleep(2)
-
-
-    def SelectProfile(self):
-        my_profile = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[3]/div/div[5]/a/img')
-        my_profile.click()
-
-    def RemoveProfilePicture(self):
-        self.SelectProfile()
-        ProfilePic = self.driver.find_element_by_class_name('be6sR')
-        ProfilePic.click()
-
-        RemovePic_button = self.driver.find_element_by_xpath('/html/body/div[4]/div/div/div[2]/button[2]')
-        RemovePic_button.click()
-        time.sleep(2)
-
-
-    def selectUserProfile(self,username):
-        selectProfile = self.driver.find_element_by_xpath('/html/body/div[2]/div/div[2]/div[2]/div[1]/div/div[3]/button/span')
-        selectProfile.click()
-
-    def WriteUserName(self,username):
-        to_btn = self.driver.find_element_by_name('queryBox')
-        to_btn.send_keys(username)
-        time.sleep(2)
-
-    def NextClick(self):
-        nxt_btn = self.driver.find_element_by_xpath("/html/body/div[2]/div/div[1]/div/div[2]/div/button")
-        nxt_btn.click()
-        time.sleep(2)
-
-    def TextMessage(self, user):
-        msg = 'Hey, There! @' + user + '. How are you?' + ' This is AutomatedBot Messages.'
-        txt_box = self.driver.find_element_by_tag_name('textarea')
-        txt_box.send_keys(msg)
-        txt_box.send_keys(Keys.ENTER)
-        time.sleep(1)
-
-    def send_message(self, usernames, message):
-
-        for usr in usernames :
-            print(usr)
-            self.driver.get('https://instagram.com/direct/new/')
-            time.sleep(3)
-            self.WriteUserName(usr)
-            self.selectUserProfile(usr)
-            self.NextClick()
-            self.TextMessage(usr)
-
-
-        # chk_mrk = self.driver.find_element_by_class_name('dCJp8')
-        # chk_mrk.click()
-        # time.sleep(3)
-
-
-        # snd_btn = self.driver.find_element_by_tag_name('button')
-        # snd_btn = snd_btn.__getitem__(3)
-        # snd_btn.click()
-        # time.sleep(3)
-
-        # count = 0;
-        # try :
-        #     for username in usernames:
-        #         self.WriteUserName(usernames)
-        #         self.selectUserProfile(usernames)
-        #         time.sleep(1)
-        #         message = 'Hii, There! ' + username + '.' + 'This is AutomatedBot Messages.'
-        #         self.send_msg(username,message)
-        #         count += 1
-        # except TypeError:
-        #     print('Failed')
-
-        # -------------- ************** Here is my Stuff ******************** -----------------
-
-        # # NotSeenChat = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/div/div[1]/div/div[3]/div/div[2]/a/svg/path')
-        # NotSeenChat.click()
-        #
-        # textArea = self.driver.find_element_by_xpath('//*[@id="react-root"]/section/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea')
-        # textArea.click()
-        # textArea.send_keys('Hii There!!')
-        # textArea.send_keys(Keys.ENTER)
-
-
-username = 'username'
-password = 'password'
-
-myUsernames = ['username_1', 'username_2', 'username_3', 'username_4', 'username_5']
-myMessage = 'Hii, There! this is AutomatedBot Message.'
-
-ig = InstagramBot(username, password)
-ig.Login()
-time.sleep(2)
-ig.FollowWithUsername('abcnews')
-time.sleep(2)
-ig.UnFollowWithUsername('abcnews')
-time.sleep(2)
-# ig.send_message(myUsernames, myMessage)
-time.sleep(2)
-ig.closeBrowser()
+my_bot = InstaBot('##USERNAME HERE##','##PSWD##')
+my_bot.go_home()
