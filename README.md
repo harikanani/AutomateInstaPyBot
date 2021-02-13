@@ -21,9 +21,10 @@ First You must have Chrome WebDriver for use this Tool.
 * Join our Discord Channel for project discussion and for fun. 👇
 * https://discord.gg/GeYFwMNf
 
+# Credit
+* Harikrushn Kanani
+* Abhi Goyani
+
+
 # Thanks
 Thanks For Using This Tool. Hope You Enjoy This Tool. New Update With Some New Features Will Updated Soon.
-
-# Credit
-Harikrushn Kanani
-Abhi Goyani
