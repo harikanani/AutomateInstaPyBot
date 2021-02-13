@@ -17,13 +17,13 @@ First You must have Chrome WebDriver for use this Tool.
 4. You Should Change the Message what you want to send.
 5. For Follow or Unfollow Specific User then use the Functions and Specify 'username' in Arguments To Follow or UnFollow a Specific User.
 
+# Discord Channel
+* Join our Discord Channel for project discussion and for fun. 👇
+* https://crosswoc.ieeedtu.in/
+
 # Thanks
 Thanks For Using This Tool. Hope You Enjoy This Tool. New Update With Some New Features Will Updated Soon.
 
 # Credit
 Harikrushn Kanani
-
-# Social Media Connect
-# [@kanani_025](https://instagram.com/kanani_025)
-# [@Harikrushn9](https://twitter.com/Harikrushn9)
-# [@Harikrushn Kanani](https://facebook.com/harikrishan.kanani/)
+Abhi Goyani
