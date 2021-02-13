@@ -19,7 +19,7 @@ First You must have Chrome WebDriver for use this Tool.
 
 # Discord Channel
 * Join our Discord Channel for project discussion and for fun. 👇
-* https://crosswoc.ieeedtu.in/
+* https://discord.gg/GeYFwMNf
 
 # Thanks
 Thanks For Using This Tool. Hope You Enjoy This Tool. New Update With Some New Features Will Updated Soon.
