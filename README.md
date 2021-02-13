@@ -19,11 +19,11 @@ First You must have Chrome WebDriver for use this Tool.
 
 # Discord Channel
 * Join our Discord Channel for project discussion and for fun. 👇
-* https://discord.gg/GeYFwMNf
+* https://discord.gg/Mw4YFRJNxk
 
 # Credit
-* Harikrushn Kanani
-* Abhi Goyani
+* Harikrushn Kanani [https://github.com/harikanani]
+* Abhi Goyani[https://github.com/abhigoyani]
 
 
 # Thanks
