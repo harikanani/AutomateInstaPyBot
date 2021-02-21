@@ -1,5 +1,7 @@
 from selenium import webdriver
 from time import sleep
+import pyautogui
+
 class InstaBot:
     def __init__(self,username,pwd):
         # CHANGE THE LOCATION OF CHROMEDRIVER BELOW #
@@ -19,9 +21,10 @@ class InstaBot:
         self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")\
             .click()
         sleep(1)
-        self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")\
-            .click()
-        sleep(2)
+        # self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")\
+        #     .click()
+        # sleep(2)
+    
 
     def go_home(self):
         self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[3]/div/div[1]/div/a")\
@@ -30,10 +33,9 @@ class InstaBot:
         self.search = self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[2]/input")
         self.search.send_keys("###PROFILE TO LIKE POSTS####")
         self.driver.implicitly_wait(3)
-        name=self.driver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/div[3]/div[2]/div/a')
+        name=self.driver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/div[3]/div/div[2]/div/div[1]/a')
         name.click()
-        self.driver.implicitly_wait(18)
-        self.like()
+        self.driver.implicitly_wait(18)                 
     def like(self):
         self.driver.implicitly_wait(4)
         sleep(2)
@@ -61,5 +63,22 @@ class InstaBot:
                 a+=1
                 print(a)
 
-my_bot = InstaBot('##USERNAME HERE##','##PSWD##')
+
+    def autoliker(self,num):
+        self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[3]/div/div[1]/div/a")\
+        .click()
+        sleep(3)
+        pyautogui.moveTo(625,657)
+        for i in range(num):
+            sleep(1)
+            pyautogui.click()
+            pyautogui.click()
+            pyautogui.scroll(-800) 
+            sleep(1)
+    
+my_bot = InstaBot('username','password')
 my_bot.go_home()
+my_bot.like()
+num=30 # Likes 15 images
+my_bot.autoliker(num)
+
