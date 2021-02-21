@@ -65,7 +65,7 @@ class InstaBot:
             pyautogui.scroll(-800) 
             sleep(1)
     
-my_bot = InstaBot('coder.602','adventure')
+my_bot = InstaBot("username","password")
 my_bot.go_home()
 my_bot.like()
 num=30 # Likes 15 images
