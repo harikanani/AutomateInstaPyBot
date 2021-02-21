@@ -21,10 +21,10 @@ class InstaBot:
         self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")\
             .click()
         sleep(1)
-        #Not Requred below line
-        # self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")\
-        #     .click()
-        # sleep(2)
+        
+        self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")\
+           .click()
+        sleep(2)
     
 
     def go_home(self):
