@@ -21,6 +21,7 @@ class InstaBot:
         self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")\
             .click()
         sleep(1)
+        #Not Requred below line
         # self.driver.find_element_by_xpath("//button[contains(text(), 'Not Now')]")\
         #     .click()
         # sleep(2)
@@ -35,7 +36,8 @@ class InstaBot:
         self.driver.implicitly_wait(3)
         name=self.driver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/div[3]/div/div[2]/div/div[1]/a')
         name.click()
-        self.driver.implicitly_wait(18)                 
+        self.driver.implicitly_wait(18) 
+        self.like()	
     def like(self):
         self.driver.implicitly_wait(4)
         sleep(2)
