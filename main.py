@@ -42,18 +42,12 @@ class InstaBot:
         sleep(4)
         driver=self.driver
         driver.find_element_by_class_name("v1Nh3").click()  # To select the post
-
         i=1
         number=20 # No of posts to be liked
-        like="True"
-        action='Like' if like else 'Unlike'
         while i<=number:
             sleep(1)
-            driver.find_element_by_class_name("fr66n").click() #like a posts
-            sleep(1)
             try:
-                driver.find_element_by_xpath("//*[@aria-label='{}']".format(action)).click() #To check post like or unlike 
-                sleep(1)
+                driver.find_element_by_xpath("//*[@aria-label='Like']").click() #To click only unlike post 
             except:
                 sleep(1)
             driver.find_element_by_class_name("coreSpriteRightPaginationArrow").click() #Go to next post
