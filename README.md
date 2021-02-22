@@ -1,6 +1,6 @@
 # AutomateInstaPyBot
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 This is Instagram Bot.
 
@@ -42,6 +42,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/muthuannamalai12"><img src="https://avatars.githubusercontent.com/u/64524822?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Muthu Annamalai.V</b></sub></a><br /><a href="https://github.com/harikanani/AutomateInstaPyBot/commits?author=muthuannamalai12" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/gracyashhh"><img src="https://avatars.githubusercontent.com/u/56349099?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Aishwarya Murugappan</b></sub></a><br /><a href="https://github.com/harikanani/AutomateInstaPyBot/commits?author=gracyashhh" title="Code">💻</a></td>
   </tr>
 </table>
 
