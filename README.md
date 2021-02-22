@@ -4,6 +4,7 @@
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ![Issue in Hacktoberfest](https://img.shields.io/github/hacktoberfest/2020/harikanani/AutomateInstaPyBot?style=flat-square)
+
 This is Instagram Bot.
 
 # Version of Software
