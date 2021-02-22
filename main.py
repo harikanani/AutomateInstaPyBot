@@ -32,7 +32,7 @@ class InstaBot:
         .click()
         sleep(3)
         self.search = self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[2]/input")
-        self.search.send_keys("we3vision_infotech") #Username whose pics to be liked
+        self.search.send_keys("###PROFILE TO LIKE POSTS####")
         self.driver.implicitly_wait(3)
         name=self.driver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/div[3]/div/div[2]/div/div[1]/a')
         name.click()
