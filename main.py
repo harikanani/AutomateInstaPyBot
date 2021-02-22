@@ -26,34 +26,40 @@ class InstaBot:
         sleep(2)
     
 
-    def go_home(self):
+   def go_home(self):
+        sleep(2)
         self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[3]/div/div[1]/div/a")\
         .click()
         sleep(3)
         self.search = self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[2]/input")
-        self.search.send_keys("###PROFILE TO LIKE POSTS####")
+        self.search.send_keys("we3vision_infotech") #Username whose pics to be liked
         self.driver.implicitly_wait(3)
         name=self.driver.find_element_by_xpath('//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/div[3]/div/div[2]/div/div[1]/a')
         name.click()
-        
+        self.driver.implicitly_wait(18)
+
     def like(self):
-        sleep(2)
+        sleep(4)
         driver=self.driver
         driver.find_element_by_class_name("v1Nh3").click()  # To select the post
 
         i=1
-        number=10 # No of posts to be liked
+        number=20 # No of posts to be liked
         like="True"
         action='Like' if like else 'Unlike'
         while i<=number:
             sleep(1)
             driver.find_element_by_class_name("fr66n").click() #like a posts
             sleep(1)
-            driver.find_element_by_xpath("//*[@aria-label='{}']".format(action)).click() #To check post like or unlike 
+            try:
+                driver.find_element_by_xpath("//*[@aria-label='{}']".format(action)).click() #To check post like or unlike 
+                sleep(1)
+            except:
+                sleep(1)
             driver.find_element_by_class_name("coreSpriteRightPaginationArrow").click() #Go to next post
             sleep(1)
             i=i+1 
-        
+            
     def autoliker(self,num):
         self.driver.get("https://www.instagram.com/")
         sleep(3)
