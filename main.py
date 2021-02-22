@@ -28,8 +28,7 @@ class InstaBot:
 
    def go_home(self):
         sleep(2)
-        self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[3]/div/div[1]/div/a")\
-        .click()
+        self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[3]/div/div[1]/div/a").click()
         sleep(3)
         self.search = self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[2]/input")
         self.search.send_keys("###PROFILE TO LIKE POSTS####")
